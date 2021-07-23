@@ -1,152 +1,164 @@
-:root {
-    // https://www.color-hex.com/color-palette/1407
-    --background: rgba(85, 214, 170, .65)
+// Things to add:
+// Link hover
+// card hover
+// whole card as link
+// images on card as screens of the page
+// @media for mobile
+// navbar
 
+// Google font
+@import url("https://fonts.googleapis.com/css?family=Merriweather:300,900|Six+Caps");
 
+// ===== Variables ===== //
+
+// Fonts stuff
+$six-caps: "Six Caps", sans-serif;
+$merriweather: "Merriweather", serif;
+
+$ff-base: $merriweather;
+$ff-alt: $six-caps;
+
+$fs-base: 1rem;
+$fs-h1: 3.75rem;
+$fs-h2: 2.875rem;
+$fs-h3: 2.25rem;
+$fs-xl: 6rem;
+
+// Colours
+$black: #6a0000;
+$yellow: #999999;
+$light-gray: #c2c2c2;
+$dark-gray: #e8e8e8;
+$white: #fff;
+
+// ===== Mixins ===== //
+
+@mixin font-base($font-size: $fs-base, $font-weight: 300, $color: $black) {
+  font: {
+    family: $ff-base;
+    size: $font-size;
+    weight: $font-weight;
+  }
+  color: $color;
 }
 
-*, *::before, *::after {
-    box-sizing: border-box;
+@mixin font-alt($font-size: $fs-base, $color: $black) {
+  font: {
+    family: $ff-alt;
+    size: $font-size;
+  }
+  color: $color;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
 }
 
-html {
-    font-size: 10px;
-    font-family: 'Roboto Condensed', sans-serif;
-}
+// ===== Styles ===== //
 
 body {
-    margin: 0;
-    background: #222;
-    font-weight: 400;
-}
+  @include font-base;
+  line-height: 1.6;
 
-.content {
-    height: 125vh;
-    background-image: url(//unsplash.it/1000/1000);
-    background-color: #333;
-    background-blend-mode: multiply;
-    background-size: cover;
-    display: grid;
-    place-items: center;
+  display: grid;
+  // grid-template-rows: 10em 50vh auto      10em;
+  // grid-template-columns: 1fr minmax(1fr, 5fr) 2fr 1fr;
+  grid-template:
+    "header header header header" 10em
+    "hero hero hero hero" 45vh
+    ". main sidebar ." auto
+    "footer footer footer footer" 10em
+    / 1fr minmax(35em, 5fr) minmax(15em, 2fr) 1fr;
+  grid-column-gap: 1.5em;
 }
 
 header {
-    background: var(--background);
-    text-align: center;
-    position: fixed;
-    z-index: 999;
-    width: 100%;
+  grid-area: header;
 }
 
-
-.nav-toggle {
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
+header,
+footer {
+  background: $black;
+  color: $yellow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-// .nav-toggle:focus ~ .nav-toggle-label {
-//     outline: 3px solid rgba(lightblue, .75);
-// }
-
-.nav-toggle-label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-left: 1em;
-    // border: 1px solid red;
-    height: 100%;
-    display: flex;
-    align-items: center;
+.header-title,
+.footer-title {
+  @include font-alt($color: $yellow, $font-size: $fs-h2);
 }
 
-.nav-toggle-label span,
-.nav-toggle-label span::before,
-.nav-toggle-label span::after {
-    display: block;
-    background: white;
-    height: 2px;
-    width: 3em;
-    border-radius: 2px;
-    position: relative;
+.hero {
+  grid-area: hero;
+  background: url(https://freefantasymaps.org/wp-content/uploads/2013/03/black-white-overland-crop.jpg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #333;
+  background-blend-mode: multiply;
 }
 
-.nav-toggle-label span::before,
-.nav-toggle-label span::after {
-    content: '';
-    position: absolute;
+.hero-title {
+  @include font-alt($fs-xl);
+  margin: 0;
 }
 
-.nav-toggle-label span::before {
-    bottom: 7px;
+.hero-subtitle {
+  @include font-base($color: $white, $font-size: $fs-h2);
 }
 
-.nav-toggle-label span::after {
-    top: 7px;
+main {
+  grid-area: main;
 }
 
-nav {
-    position: absolute;
-    text-align: left;
-    top:100%;
-    left: 0;
-    background: var(--background);
-    width: 100%;
-    transform: scale(1, 0);
-    transform-origin: top;
-    transition: transform 400ms ease-in-out;
+aside {
+  grid-area: sidebar;
+  background: $dark-gray;
+  padding: 2em;
 }
 
-nav ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+footer {
+  grid-area: footer;
 }
 
-nav li {
-    margin-bottom: 1em;
-    margin-left: 1em;
+//cards
+
+.card {
+  display: grid;
+  //grid-template-columns: 1fr 3fr;
+  //grid-template-rows: min-content       auto;
+  //grid-template is shorthand for        above
+  grid-template:
+    "img title" min-content
+    "img content" auto / 1fr 3fr;
+  box-shadow: .25em .25em 1em rgba(0, 0, 0, 0.5);
+  padding: 1.5em;
+  grid-column-gap: 1.5em;
+  margin-bottom: 1.5em;
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.5rem;
-    text-transform: uppercase;
-    opacity: 0;
-    transition: opacity 150ms ease-in-out;
+.card:hover {
+    box-shadow: 1em 1em 3em rgba(0, 0, 0, 0.5);
+    transition: ease-out;
 }
 
-nav a:hover {
-    color: #444;
+.card-img {
+  grid-area: img;
+  max-width: 100%;
 }
 
-.nav-toggle:checked ~ nav {
-    transform: scale(1,1);
+.card-title {
+  grid-area: title;
+  margin: 0;
+  font-weight: 300;
 }
 
-.nav-toggle:checked ~ nav a {
-  opacity: 1;
-  transition: opacity 250ms ease-in-out 250ms;
+.card-content {
+  grid-area: content;
+
+  a {
+    color: $yellow;
+    font-size: 1.1em;
+  }
 }
-
-// @media screen and (min-width: 800px) {
-//   .nav-toggle-label {
-//     display: none;
-//   }
-
-//   header {
-//     display: grid;
-//     grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
-//   }
-  
-//   .logo {
-//     grid-column: 2 / 3;
-//   }
-
-//   .content {
-//       background-image: url(//unsplash.it/100/200);
-//       height: 100%;
-//       width: 100vw;
-//   }
-// }
