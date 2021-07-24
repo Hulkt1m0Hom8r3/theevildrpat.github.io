@@ -1,22 +1,22 @@
 .body-ref {
-  @include font-base;
-  line-height: 1.6;
-  display: grid;
-  grid-template:
-    "header header header header" 10em
-    "hero hero hero hero" 45vh
-    "sidebar sidebar sidebar sidebar" auto
-    "main main main main" auto
-    "footer footer footer footer" 10em
-    / 1fr 1fr 1fr 1fr;
-  grid-column-gap: 1.5em;
-}
+    line-height: 1.6;
+    display: grid;
+    grid-template:
+      "header header header" 10em
+      "hero hero hero" 45vh
+      "sidebar sidebar sidebar" auto
+      ". main ." auto
+      "footer footer footer" 10em
+      / 0.25fr minmax(15em, 2fr) 0.25fr;
+    grid-column-gap: 1.5em;
+  }
 
 
 .aside-ref {
   grid-area: sidebar;
   background: $light-gray;
-  margin-right: .01rem;
+  padding: 2rem;
+  margin-right: -4rem;
 
   a {
     text-decoration: none;

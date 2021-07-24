@@ -1143,21 +1143,18 @@ main {
 }
 
 .body-ref {
-  font-family: "Merriweather", serif;
-  font-size: 1rem;
-  font-weight: 300;
-  color: #000;
   line-height: 1.6;
   display: -ms-grid;
   display: grid;
-  grid-template: "header header header header" 10em "hero hero hero hero" 45vh "sidebar sidebar sidebar sidebar" auto "main main main main" auto "footer footer footer footer" 10em / 1fr 1fr 1fr 1fr;
+  grid-template: "header header header" 10em "hero hero hero" 45vh "sidebar sidebar sidebar" auto ". main ." auto "footer footer footer" 10em/0.25fr minmax(15em, 2fr) 0.25fr;
   grid-column-gap: 1.5em;
 }
 
 .aside-ref {
   grid-area: sidebar;
   background: #e8e8e8;
-  margin-right: .01rem;
+  padding: 2rem;
+  margin-right: -4rem;
 }
 
 .aside-ref a {
