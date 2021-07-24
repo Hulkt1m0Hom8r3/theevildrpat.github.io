@@ -77,12 +77,12 @@ form.charsheet label {
   text-transform: uppercase;
   font-size: 12px;
 }
-form.charsheet header {
+form.charsheet .sheet-head {
   display: flex;
   align-content: stretch;
   align-items: stretch;
 }
-form.charsheet header section.charname {
+form.charsheet .sheet-head section.charname {
   border: 1px solid black;
   border-right: 0;
   border-radius: 10px 0 0 10px;
@@ -95,35 +95,35 @@ form.charsheet header section.charname {
   top: 0;
   margin: auto;
 }
-form.charsheet header section.charname input {
+form.charsheet .sheet-head section.charname input {
   padding: 0.5em;
   margin: 5px;
   border: 0;
 }
-form.charsheet header section.charname label {
+form.charsheet .sheet-head section.charname label {
   padding-left: 1em;
 }
-form.charsheet header section.misc {
+form.charsheet .sheet-head section.misc {
   width: 70%;
   border: 1px solid black;
   border-radius: 10px;
   padding-left: 1em;
   padding-right: 1em;
 }
-form.charsheet header section.misc ul {
+form.charsheet .sheet-head section.misc ul {
   padding: 10px 0px 5px 0px;
   display: flex;
   flex-wrap: wrap;
 }
-form.charsheet header section.misc ul li {
+form.charsheet .sheet-head section.misc ul li {
   width: 33.33333%;
   display: flex;
   flex-direction: column-reverse;
 }
-form.charsheet header section.misc ul li label {
+form.charsheet .sheet-head section.misc ul li label {
   margin-bottom: 5px;
 }
-form.charsheet header section.misc ul li input {
+form.charsheet .sheet-head section.misc ul li input {
   border: 0;
   border-bottom: 1px solid #ddd;
 }

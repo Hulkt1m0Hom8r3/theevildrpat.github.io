@@ -1,4 +1,4 @@
-body {
+.page-body {
   @include font-base;
   line-height: 1.6;
   display: grid;
@@ -11,7 +11,7 @@ body {
   grid-column-gap: 1.5em;
 }
 
-header {
+.page-head {
   grid-area: header;
 }
 
@@ -19,7 +19,7 @@ footer {
   grid-area: footer;
 }
 
-header,
+.page-head,
 footer {
   background: $red;
   display: flex;
