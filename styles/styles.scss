@@ -1,14 +1,12 @@
-// Things to add:
-//cards as links
-//CSS for each page linking to one main page
-//figure out why TF travels isn't working on line
+// Colours
+$red: #6a0000;
+$dark-gray: #c2c2c2;
+$light-gray: #e8e8e8;
+$white: #fff;
+$black: #000;
 
-// Google font
 @import url("https://fonts.googleapis.com/css?family=Merriweather:300,900|Six+Caps");
 
-// ===== Variables ===== //
-
-// Fonts stuff
 $six-caps: "Six Caps", sans-serif;
 $merriweather: "Merriweather", serif;
 
@@ -20,15 +18,6 @@ $fs-h1: 3.75rem;
 $fs-h2: 2.875rem;
 $fs-h3: 2.25rem;
 $fs-xl: 6rem;
-
-// Colours
-$black: #6a0000;
-// $light-gray: #999999;
-$light-gray: #c2c2c2;
-$dark-gray: #e8e8e8;
-$white: #fff;
-
-// ===== Mixins ===== //
 
 @mixin font-base($font-size: $fs-base, $font-weight: 300, $color: $black) {
   font: {
@@ -49,142 +38,15 @@ $white: #fff;
   letter-spacing: 0.3em;
 }
 
-// ===== Styles ===== //
-
-body {
-  @include font-base;
-  line-height: 1.6;
-
-  display: grid;
-  // grid-template-rows: 10em 50vh auto      10em;
-  // grid-template-columns: 1fr minmax(1fr, 5fr) 2fr 1fr;
-  grid-template:
-    "header header header header" 10em
-    "hero hero hero hero" 45vh
-    ". main sidebar ." auto
-    "footer footer footer footer" 10em
-    / 1fr minmax(35em, 5fr) minmax(15em, 2fr) 1fr;
-  grid-column-gap: 1.5em;
-}
-
-header {
-  grid-area: header;
-}
-
-header,
-footer {
-  background: $black;
-  color: $light-gray;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.header-title,
-.footer-title {
-  @include font-alt($color: $light-gray, $font-size: $fs-h2);
-}
-
-.hero {
-  grid-area: hero;
-  background: url(https://freefantasymaps.org/wp-content/uploads/2013/03/black-white-overland-crop.jpg);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #333;
-  background-blend-mode: multiply;
-}
-
-.hero-title {
-  @include font-alt($fs-xl);
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
-  @media (max-width: 1025px) {
-    font-size: 3rem;
-  }
 }
 
-.hero-subtitle {
-  @include font-base($color: $white, $font-size: $fs-h2);
-}
 
-main {
-  grid-area: main;
-}
 
-aside {
-  grid-area: sidebar;
-  background: $dark-gray;
-  padding: 2em;
-}
-
-footer {
-  grid-area: footer;
-}
-
-//cards
-
-.card {
-  display: grid;
-  grid-template:
-    "img title" min-content
-    "img content" auto / 1fr 3fr;
-  box-shadow: 0.25em 0.25em 1em rgba(0, 0, 0, 0.5);
-  padding: 1.5em;
-  grid-column-gap: 1.5em;
-  margin-bottom: 1.5em;
-}
-
-.card:hover {
-  box-shadow: 1em 1em 3em rgba(0, 0, 0, 0.5);
-  transition: ease-out;
-}
-
-.card-img {
-  grid-area: img;
-  max-width: 100%;
-}
-
-.card-title {
-  grid-area: title;
-  margin: 0;
-  font-weight: 300;
-}
-
-.card-content {
-  grid-area: content;
-
-  a {
-    color: $light-gray;
-    font-size: 1.1em;
-  }
-}
-
-@media (max-width: 1025px) {
-  body {
-    line-height: 1.6;
-    display: grid;
-    grid-template:
-      "header header header" 10em
-      "hero hero hero" 45vh
-      "sidebar sidebar sidebar" auto
-      ". main ." auto
-      "footer footer footer" 10em
-      / 0.25fr minmax(15em, 2fr) 0.25fr;
-    grid-column-gap: 1.5em;
-  }
-}
-//figure this out
-.sheets {
-  display: grid;
-  grid-template:
-    ". sheets sidebar ." 50rem
-    / 1fr minmax(55rem, 5fr) minmax(15em, 2fr) 1fr;
-  grid-column-gap: 1.5em;
-  margin-bottom: 2rem;
-}
-iframe {
-  grid-area: sheets;
-  height: 100%;
-  width: 100%;
-}
+@import "general";
+@import "card";
+@import "reference";

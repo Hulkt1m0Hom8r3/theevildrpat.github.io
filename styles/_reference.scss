@@ -1,0 +1,51 @@
+.body-ref {
+  @include font-base;
+  line-height: 1.6;
+  display: grid;
+  grid-template:
+    "header header header header" 10em
+    "hero hero hero hero" 45vh
+    "sidebar sidebar sidebar sidebar" auto
+    "main main main main" auto
+    "footer footer footer footer" 10em
+    / 1fr 1fr 1fr 1fr;
+  grid-column-gap: 1.5em;
+}
+
+
+.aside-ref {
+  grid-area: sidebar;
+  background: $light-gray;
+  display: flex;
+  flex-direction: row;
+  margin-right: .01rem;
+
+  a {
+    text-decoration: none;
+    @include font-alt($color: $red, $font-size: 3rem);
+    align-items: center;
+    justify-content: center;
+    margin-left: 3rem;
+  }
+
+  a:hover {
+    @include font-alt($color: $dark-gray, $font-size: 3rem);
+    background-color: $red;
+    padding: 0.5rem;
+    border-radius: 1.5rem;
+  }
+
+  ul {
+    list-style-type: none;
+    display: flex;
+  }
+}
+
+.iframe-ref {
+  height: 50rem;
+  width: fill;
+  box-shadow: 0.25em 0.25em 0.25em rgba(0, 0, 0, 0.5);
+  padding: 1.5em;
+  grid-column-gap: 1.5rem;
+  margin: 1.5rem;
+}
