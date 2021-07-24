@@ -102,8 +102,8 @@ footer {
 .hero-title {
   @include font-alt($fs-xl);
   margin: 0;
-  @media (max-width:925px) {
-    font-size: 3rem;    
+  @media (max-width: 1025px) {
+    font-size: 3rem;
   }
 }
 
@@ -163,7 +163,7 @@ footer {
   }
 }
 
-@media (max-width: 875px) {
+@media (max-width: 1025px) {
   body {
     line-height: 1.6;
     display: grid;
@@ -176,4 +176,18 @@ footer {
       / 0.25fr minmax(15em, 2fr) 0.25fr;
     grid-column-gap: 1.5em;
   }
+}
+//figure this out
+.sheets {
+  display: grid;
+  grid-template:
+    ". sheets sidebar ." 50rem
+    / 1fr minmax(55rem, 5fr) minmax(15em, 2fr) 1fr;
+  grid-column-gap: 1.5em;
+  margin-bottom: 2rem;
+}
+iframe {
+  grid-area: sheets;
+  height: 100%;
+  width: 100%;
 }

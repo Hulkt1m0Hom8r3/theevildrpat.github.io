@@ -68,7 +68,7 @@ footer {
   margin: 0;
 }
 
-@media (max-width: 925px) {
+@media (max-width: 1025px) {
   .hero-title {
     font-size: 3rem;
   }
@@ -134,7 +134,7 @@ footer {
   font-size: 1.1em;
 }
 
-@media (max-width: 875px) {
+@media (max-width: 1025px) {
   body {
     line-height: 1.6;
     display: -ms-grid;
@@ -142,5 +142,19 @@ footer {
     grid-template: "header header header" 10em "hero hero hero" 45vh "sidebar sidebar sidebar" auto ". main ." auto "footer footer footer" 10em/0.25fr minmax(15em, 2fr) 0.25fr;
     grid-column-gap: 1.5em;
   }
+}
+
+.sheets {
+  display: -ms-grid;
+  display: grid;
+  grid-template: ". sheets sidebar ." 50rem/1fr minmax(55rem, 5fr) minmax(15em, 2fr) 1fr;
+  grid-column-gap: 1.5em;
+  margin-bottom: 2rem;
+}
+
+iframe {
+  grid-area: sheets;
+  height: 100%;
+  width: 100%;
 }
 /*# sourceMappingURL=styles.css.map */
