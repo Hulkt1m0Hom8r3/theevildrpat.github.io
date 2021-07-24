@@ -218,13 +218,6 @@ main {
 .aside-ref {
   grid-area: sidebar;
   background: #e8e8e8;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
   margin-right: .01rem;
 }
 
@@ -272,6 +265,42 @@ main {
   padding: 1.5em;
   grid-column-gap: 1.5rem;
   margin: 1.5rem;
+}
+
+@media (max-width: 1100px) {
+  body {
+    line-height: 1.6;
+    display: -ms-grid;
+    display: grid;
+    grid-template: "header header header" 10em "hero hero hero" 45vh "sidebar sidebar sidebar" auto ". main ." auto "footer footer footer" 10em/0.25fr minmax(15em, 2fr) 0.25fr;
+    grid-column-gap: 1.5em;
+  }
+  aside {
+    margin: .01rem;
+  }
+}
+
+@media (max-width: 950px) {
+  .hero-title {
+    font-size: 3.75rem;
+  }
+  aside, a, ul, li {
+    font-size: .7rem;
+    margin: .01rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-title, .header-title, .hero-subtitle {
+    font-size: 2rem;
+  }
+  aside, a, ul, li {
+    font-size: .7rem;
+    margin: .01rem;
+  }
+  .card-content {
+    font-size: .65rem;
+  }
 }
 
 @media (max-width: 1100px) {
