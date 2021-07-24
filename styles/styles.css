@@ -282,17 +282,28 @@ main {
     grid-template: "header header header" 10em "hero hero hero" 45vh "sidebar sidebar sidebar" auto ". main ." auto "footer footer footer" 10em/0.25fr minmax(15em, 2fr) 0.25fr;
     grid-column-gap: 1.5em;
   }
+  aside {
+    margin: .01rem;
+  }
 }
 
 @media (max-width: 950px) {
   .hero-title {
     font-size: 3.75rem;
   }
+  aside, a, ul, li {
+    font-size: .7rem;
+    margin: .01rem;
+  }
 }
 
 @media (max-width: 600px) {
   .hero-title, .header-title, .hero-subtitle {
     font-size: 2rem;
+  }
+  aside, a, ul, li {
+    font-size: .7rem;
+    margin: .01rem;
   }
   .card-content {
     font-size: .65rem;

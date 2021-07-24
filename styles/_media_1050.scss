@@ -11,11 +11,19 @@
       / 0.25fr minmax(15em, 2fr) 0.25fr;
     grid-column-gap: 1.5em;
   }
+
+  aside {
+      margin: .01rem;
+  }
 }
 
 @media (max-width: 950px) {
     .hero-title {
   font-size: $fs-h1;
+}
+aside, a, ul, li {
+    font-size: .7rem;
+    margin: .01rem;
 }
 }
 
@@ -24,6 +32,10 @@
   font-size: 2rem;
 }
 
+aside, a, ul, li {
+    font-size: .7rem;
+    margin: .01rem;
+}
 .card-content {
     font-size: .65rem;
 }
