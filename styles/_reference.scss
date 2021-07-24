@@ -23,7 +23,11 @@
     @include font-alt($color: $red, $font-size: 3rem);
     align-items: center;
     justify-content: center;
-    margin-left: 3rem;
+    margin-left: -3rem;
+  }
+
+  .travel-log {
+    margin-left: 1.75rem;
   }
 
   a:hover {

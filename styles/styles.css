@@ -234,7 +234,11 @@ main {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-left: 3rem;
+  margin-left: -3rem;
+}
+
+.aside-ref .travel-log {
+  margin-left: 1.75rem;
 }
 
 .aside-ref a:hover {
